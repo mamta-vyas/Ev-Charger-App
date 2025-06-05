@@ -148,7 +148,6 @@ npm install
 
 ➡️ Create your .env file as shown above, then:
 
-
 nodemon server.js
 # or
 node server.js
