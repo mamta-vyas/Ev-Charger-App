@@ -1,6 +1,6 @@
 ⚡ EV Charger Management App
 
-A full-stack EV (Electric Vehicle) Charger Management application that allows users to register, log in,l ogout, and manage EV charging stations with geolocation, filtering, and map visualization.
+A full-stack EV (Electric Vehicle) Charger Management application that allows users to register, login,logout, and manage EV charging stations with geolocation, filtering, and map visualization.
 
 Built using Vue 3 + Vite for the frontend and Node.js + Express + MongoDB for the backend. Authentication is handled using JWT, and all sensitive routes are protected.
 
