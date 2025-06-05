@@ -34,6 +34,7 @@ router.post('/register', async (req, res) => {
 // Login Route
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
+  console.log(email,password);
 
   try {
     const user = await User.findOne({ email });
@@ -43,6 +44,8 @@ router.post('/login', async (req, res) => {
     if (!isMatch) return res.status(400).json({ message: 'Invalid email or password' });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
+
+    console.log(token);
 
     res.json({
       token,
