@@ -11,19 +11,19 @@ hosted app demo link -
 screenshots - 
 
 ### 🔐 Signup Page
-![Signup Screenshot](./frontend/assets/ss1.png)
+![Signup Screenshot](./frontend/src/assets/ss1.png)
 
 ### 🔐 Login Page
-![Login Screenshot](./frontend/assets/ss2.png)
+![Login Screenshot](./frontend/src/assets/ss2.png)
 
 ### 🔐 Map View 
-![Map View Screenshot](./frontend/assets/ss3.png)
+![Map View Screenshot](./frontend/src/assets/ss3.png)
 
 ### 🔐 Dashboard View with ChargerCard
-![Dashboard View with ChargerCard Screenshot](./frontend/assets/ss4.png)
+![Dashboard View with ChargerCard Screenshot](./frontend/src/assets/ss4.png)
 
 ### 🔐 Dashboard View with filter
-![Dashboard View with filterScreenshot](./frontend/assets/ss5.png)
+![Dashboard View with filterScreenshot](./frontend/src/assets/ss5.png)
 
 
 🧩 Folder Structure
