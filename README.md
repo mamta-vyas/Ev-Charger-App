@@ -156,13 +156,15 @@ node server.js
 cd ../frontend
 npm install
 npm run dev
+
 🔗 App runs at: http://localhost:5173
 
 🧪 Test Credentials
 Use these for quick testing:
 
-Email:    test@example.com  
+Email: test@example.com  
 Password: test123
+
 Or sign up through the registration page.
 
 📤 Deployment Notes
@@ -176,5 +178,7 @@ Make sure to update the API base URL in the frontend for production
 🧠 Author
 Mamta Vyas
 Frontend Developer • Open Source Enthusiast
+
 [GitHub] (https://github.com/mamta-vyas ) 
+
 [LinkedIn] (https://www.linkedin.com/in/mamtavyas/)
