@@ -74,9 +74,11 @@ User Signup/Login
 
 
 🔐 JWT-Protected Routes
+
 This app features secure, token-based routing using JWT authentication.
 
 🧭 Charger Management Features
+
 Add / Edit / Delete EV Chargers
 
 Dashboard View: View all chargers in a centralized dashboard
@@ -96,6 +98,7 @@ Map View: Display chargers on a map using OpenStreetMap
 Real-time UI Updates after CRUD operations
 
 🌐 Frontend Features
+
 Built with Vue 3 + Vite
 
 Tailwind CSS for modern responsive UI
@@ -105,6 +108,7 @@ Axios for API calls
 Fully responsive and mobile-friendly layout
 
 ⚙️ Backend Features
+
 Built using Node.js + Express.js
 
 MongoDB with Mongoose for data handling
@@ -117,44 +121,64 @@ Handles CORS for cross-origin requests
 
 🔑 API Endpoints
 👤 Auth Routes
+
 Method	Endpoint	Description
+
 POST	/api/auth/signup	Register a new user
+
 POST	/api/auth/login	Login and receive JWT
 
 ⚡ Charger Routes (Protected)
 All routes require:
+
 Authorization: Bearer <your_token> in request headers.
 
 Method	Endpoint	Description
+
 GET	/api/chargers	Get all chargers
+
 POST	/api/chargers	Add new charger
+
 PUT	/api/chargers/:id	Update charger by ID
+
 DELETE	/api/chargers/:id	Delete charger by ID
 
 🔧 Environment Configuration
+
 Create a .env file inside the /backend directory:
 
 env
+
 PORT=5000
+
 MONGO_URI=your_mongodb_connection_string
+
 JWT_SECRET=your_very_secret_key
+
 ✅ Add .env to .gitignore
 
 🛠️ Setup Instructions
 📦 Backend Setup
 
 git clone https://github.com/mamta-vyas/Ev-Charger-App.git
+
 cd Ev-Charger-App/backend
+
 npm install
+
 ➡️ Create your .env file, then start the server:
 
 nodemon server.js
 # or
 node server.js
 
+
 🌐 Frontend Setup
+
 cd ../frontend
+
 npm install
+
 npm run dev
 
 🔗 App runs at: http://localhost:5173
