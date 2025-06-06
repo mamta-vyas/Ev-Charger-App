@@ -1,6 +1,6 @@
 ⚡ EV Charger Management App
 
-A full-stack EV (Electric Vehicle) Charger Management application that allows users to register, log in,l ogout, and manage EV charging stations with geolocation, filtering, and map visualization.
+A full-stack EV (Electric Vehicle) Charger Management application that allows users to register, login,logout, and manage EV charging stations with geolocation, filtering, and map visualization.
 
 Built using Vue 3 + Vite for the frontend and Node.js + Express + MongoDB for the backend. Authentication is handled using JWT, and all sensitive routes are protected.
 
@@ -74,81 +74,102 @@ User Signup/Login
 
 JWT-based protected routes
 
-🧭 Charger Management
+🔐 JWT-Protected Routes
+
+This app features secure, token-based routing using JWT authentication.
+
+🧭 Charger Management Features
+
 Add / Edit / Delete EV Chargers
 
-View all chargers in a dashboard
+Dashboard View: View all chargers in a centralized dashboard
 
-Filtering: by status, power output, and connector type
+Filtering Options: Filter chargers by
 
-Geolocation support using browser APIs
+Status
 
-🌐 UI (Frontend)
-Responsive layout using Tailwind CSS
+Power Output
 
-Map View with markers (via OpenStreetMap)
+Connector Type
 
-Real-time updates after CRUD actions
+Geolocation Support: Uses browser APIs to detect and show user location
 
-🧰 Tech Stack
-Frontend
-Vue 3
+Map View: Display chargers on a map using OpenStreetMap
 
-Vite
+Real-time UI Updates after CRUD operations
 
-Tailwind CSS
+🌐 Frontend Features
 
-Axios
+Built with Vue 3 + Vite
 
-Backend
-Node.js
+Tailwind CSS for modern responsive UI
 
-Express.js
+Axios for API calls
 
-MongoDB
+Fully responsive and mobile-friendly layout
 
-Mongoose
+⚙️ Backend Features
 
-JWT
+Built using Node.js + Express.js
 
-dotenv
+MongoDB with Mongoose for data handling
 
-CORS
+JWT for authentication
 
-🔐 Backend API Endpoints
-🔑 Auth Routes
+Uses dotenv for environment variables
+
+Handles CORS for cross-origin requests
+
+🔑 API Endpoints
+👤 Auth Routes
+
 Method	Endpoint	Description
+
 POST	/api/auth/signup	Register a new user
-POST	/api/auth/login	Login and get JWT
+
+POST	/api/auth/login	Login and receive JWT
 
 ⚡ Charger Routes (Protected)
+All routes require:
+
+Authorization: Bearer <your_token> in request headers.
+
 Method	Endpoint	Description
+
 GET	/api/chargers	Get all chargers
+
 POST	/api/chargers	Add new charger
+
 PUT	/api/chargers/:id	Update charger by ID
+
 DELETE	/api/chargers/:id	Delete charger by ID
 
-⚠️ All charger routes require Authorization: Bearer <your_token> in headers.
-
-🔧 .env Configuration
+🔧 Environment Configuration
 Create a .env file inside the /backend directory:
 
+env
+
 PORT=5000
+
 MONGO_URI=your_mongodb_connection_string
+
 JWT_SECRET=your_very_secret_key
-✅ Don’t forget to add .env to .gitignore
+
+✅ Add .env to .gitignore
 
 🛠️ Setup Instructions
 
 📦 Backend Setup
 
 git clone https://github.com/mamta-vyas/Ev-Charger-App.git
+
 cd Ev-Charger-App/backend
+
 npm install
 
-➡️ Create your .env file as shown above, then:
+➡️ Create your .env file
 
-
+then start the server:
 nodemon server.js
 # or
 node server.js
@@ -157,26 +178,33 @@ node server.js
 🌐 Frontend Setup
 
 cd ../frontend
+
 npm install
+
 npm run dev
-App will be available at: http://localhost:5173
+
+🔗 App runs at: http://localhost:5173
 
 🧪 Test Credentials
-You can use these credentials for quick testing:
+Use these for quick testing:
 
-Email: test@example.com
+Email: test@example.com  
 Password: test123
-Or register a new user from the signup page.
+
+Or sign up through the registration page.
 
 📤 Deployment Notes
-Deploy frontend separately (e.g., Vercel/Netlify)
+Deploy frontend using Vercel or Netlify
 
-Deploy backend on services like Render, Railway, or Cyclic
+Deploy backend using Render, Railway, or Cyclic
 
-Configure your deployed frontend to use the deployed backend API endpoint
+Make sure to update the API base URL in the frontend for production
+
 
 🧠 Author
 Mamta Vyas
 Frontend Developer • Open Source Enthusiast
-[GitHub](https://github.com/mamta-vyas) 
+
+[GitHub] (https://github.com/mamta-vyas ) 
+
 [LinkedIn] (https://www.linkedin.com/in/mamtavyas/)
