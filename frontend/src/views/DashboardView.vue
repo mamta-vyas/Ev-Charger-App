@@ -184,7 +184,7 @@ const initMap = () => {
 
 // Render map markers
 const renderMarkers = () => {
-  if (!map.value) return
+    if (!map.value || !map.value._loaded) return 
 
   // Remove old markers
   markers.value.forEach((marker) => marker.remove())

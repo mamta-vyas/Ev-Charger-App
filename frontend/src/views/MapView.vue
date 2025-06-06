@@ -40,7 +40,8 @@ const fetchChargers = async () => {
 }
 
 const renderMarkers = () => {
-  // Remove old markers
+  if (!map.value || !map.value._loaded) return 
+  
   markers.value.forEach((marker) => marker.remove())
   markers.value = []
 
