@@ -60,7 +60,7 @@ const { lat, lon, getLocation } = useGeolocation()
 
 const handleLogin = async () => {
   try {
-    const response = await axios.post('https://ev-charger-app.onrender.com/api/login', {
+    const response = await axios.post('https://ev-charger-app.onrender.com/api/auth/login', {
       email: email.value,
       password: password.value
     })
