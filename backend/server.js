@@ -10,7 +10,13 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+
+// ✅ Allow requests from your frontend Netlify domain
+app.use(cors({
+  origin: 'https://precious-meringue-374fb0.netlify.app',
+  credentials: true, // if using cookies or authentication headers
+}));
+
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
