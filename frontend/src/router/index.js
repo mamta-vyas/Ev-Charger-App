@@ -16,18 +16,19 @@ const routes = [
     component: SignupView
   },
   {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: DashboardView,
-    props: route => {
+  path: '/dashboard',
+  name: 'dashboard',
+  component: DashboardView,
+  props: route => {
     const lat = parseFloat(route.query.lat)
     const lon = parseFloat(route.query.lon)
     return {
-      lat: isNaN(lat) ? 20.5937 : lat, // India default
-      lon: isNaN(lon) ? 78.9629 : lon
+      lat: isNaN(lat) ? null : lat,
+      lon: isNaN(lon) ? null : lon
     }
   }
-  },
+}
+,
   {
     path: '/map',
     name: 'map',

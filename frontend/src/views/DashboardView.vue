@@ -71,8 +71,7 @@
 </template>
 
 <script setup>
-import { reactive, ref, onMounted, computed, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import {defineProps, reactive, ref, onMounted, computed, watch } from 'vue'
 import axios from 'axios'
 import L from 'leaflet'
 import ChargerCard from '@/components/ChargerCard.vue'
@@ -82,10 +81,13 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 
-const route = useRoute()
+const props = defineProps({
+  lat: Number,
+  lon: Number
+})
 
-const lat = ref(20.5937) // default to India center
-const lon = ref(78.9629)
+const lat = ref(props.lat ?? 20.5937)
+const lon = ref(props.lon ?? 78.9629)
 
 const chargers = ref([])
 
@@ -167,20 +169,19 @@ const filteredChargers = computed(() => {
 
 // Init Leaflet Map
 const initMap = () => {
-  // Try to get from route query
-  const queryLat = parseFloat(route.query.lat)
-  const queryLon = parseFloat(route.query.lon)
-
-  if (!isNaN(queryLat) && !isNaN(queryLon)) {
-    lat.value = queryLat
-    lon.value = queryLon
+    const mapElement = document.getElementById('map')
+  if (!mapElement) {
+    console.error('Map container element not found')
+    return
   }
 
-  map.value = L.map('map').setView([lat.value, lon.value], 10)
+  map.value = L.map(mapElement).setView([lat.value, lon.value], 12)
+
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map.value)
 }
+
 
 // Render map markers
 const renderMarkers = () => {

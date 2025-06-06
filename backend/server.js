@@ -16,7 +16,6 @@ app.use(cors({
   origin: 'https://precious-meringue-374fb0.netlify.app',
   credentials: true, // if using cookies or authentication headers
 }));
-
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);

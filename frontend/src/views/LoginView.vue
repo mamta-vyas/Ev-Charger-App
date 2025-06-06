@@ -37,10 +37,11 @@
           {{ error }}
         </p>
       </form>
+
       <p class="mt-4 text-center text-sm">
-  Don't have an account?
-  <router-link to="/signup" class="text-blue-600 hover:underline">Sign up here</router-link>
-</p>
+        Don't have an account?
+        <router-link to="/signup" class="text-blue-600 hover:underline">Sign up here</router-link>
+      </p>
     </div>
   </div>
 </template>
@@ -49,11 +50,13 @@
 import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
+import { useGeolocation } from '@/composables/useGeolocation.js'
 
 const email = ref('')
 const password = ref('')
 const error = ref('')
 const router = useRouter()
+const { lat, lon, getLocation } = useGeolocation()
 
 const handleLogin = async () => {
   try {
@@ -63,9 +66,20 @@ const handleLogin = async () => {
     })
     const token = response.data.token
     localStorage.setItem('token', token)
-    router.push('/dashboard')
-  } catch (err) {
-    err.value = 'Invalid email or password'
+
+    // Get geolocation after successful login
+    getLocation()
+
+    // Delay to wait for lat/lon ref to update
+    setTimeout(() => {
+      if (lat.value && lon.value) {
+        router.push({ name: 'dashboard', query: { lat: lat.value, lon: lon.value } })
+      } else {
+        router.push({ name: 'dashboard' }) // fallback
+      }
+    }, 1000)
+  } catch (error) {
+    error.value = 'Invalid email or password'
   }
 }
 </script>

@@ -5,24 +5,7 @@
 </template>
 
 <script setup>
-import { useGeolocation } from '@/composables/useGeolocation.js'
-import { watch } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import { onMounted } from 'vue'
-
-const { lat, lon, getLocation } = useGeolocation()
-onMounted(() => {
-  getLocation() // still triggers on load (warning may appear)
-})
-const router = useRouter()
-const route = useRoute()
-
-// When location is available, redirect to dashboard (unless already there)
-watch([lat, lon], ([newLat, newLon]) => {
-  if (newLat && newLon && route.name !== 'dashboard') {
-    router.push({ name: 'dashboard', query: { lat: newLat, lon: newLon } })
-  }
-})
+// No geolocation logic here now
 </script>
 
 <style>

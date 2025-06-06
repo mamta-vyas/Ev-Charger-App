@@ -2,6 +2,7 @@
   <div class="min-h-screen flex items-center justify-center bg-gray-50">
     <div class="max-w-md w-full bg-white p-8 rounded shadow">
       <h2 class="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+
       <form @submit.prevent="handleSignup" class="space-y-4">
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
@@ -37,16 +38,19 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useGeolocation } from '@/composables/useGeolocation.js'
 
 const name = ref('')
 const email = ref('')
 const password = ref('')
 const router = useRouter()
+const { lat, lon, getLocation } = useGeolocation()
 
 async function handleSignup() {
   try {
     const res = await fetch('https://ev-charger-app.onrender.com/api/auth/register', {
       method: 'POST',
+      credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name: name.value,
@@ -57,13 +61,22 @@ async function handleSignup() {
 
     if (!res.ok) throw new Error('Signup failed')
 
-    const data = await res.json() // ✅ parse the response JSON
-    const token = data.token       // ✅ get the token
+    const data = await res.json()
+    const token = data.token
 
     if (token) {
       localStorage.setItem('token', token)
       alert('Signup successful!')
-      router.push('/dashboard')
+
+      // Get location and then navigate
+      getLocation()
+      setTimeout(() => {
+        if (lat.value && lon.value) {
+          router.push({ name: 'dashboard', query: { lat: lat.value, lon: lon.value } })
+        } else {
+          router.push({ name: 'dashboard' }) // fallback
+        }
+      }, 1000)
     } else {
       alert('No token received. Please login manually.')
     }
@@ -71,5 +84,4 @@ async function handleSignup() {
     alert(error.message || 'Something went wrong')
   }
 }
-
 </script>
