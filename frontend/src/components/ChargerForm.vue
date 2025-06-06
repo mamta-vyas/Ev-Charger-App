@@ -118,11 +118,11 @@ const handleSubmit = async () => {
 
   try {
     if (isEdit.value) {
-      await axios.put(`http://localhost:5000/api/chargers/${props.editData._id}`, payload, {
+      await axios.put(`https://ev-charger-app.onrender.com/api/chargers/${props.editData._id}`, payload, {
         headers: { Authorization: `Bearer ${token}` }
       })
     } else {
-      await axios.post('http://localhost:5000/api/chargers', payload, {
+      await axios.post('https://ev-charger-app.onrender.com/api/chargers', payload, {
         headers: { Authorization: `Bearer ${token}` }
       })
     }

@@ -27,7 +27,7 @@ const editData = ref(null)
 const fetchChargers = async () => {
   try {
     const token = localStorage.getItem('token')
-    const res = await axios.get('http://localhost:5000/api/chargers', {
+    const res = await axios.get('https://ev-charger-app.onrender.com/api/chargers', {
       headers: {
         Authorization: `Bearer ${token}`
       }

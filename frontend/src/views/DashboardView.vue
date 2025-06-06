@@ -110,7 +110,7 @@ const markers = ref([])
 const fetchChargers = async () => {
   try {
     const token = localStorage.getItem('token')
-    const res = await axios.get('http://localhost:5000/api/chargers', {
+    const res = await axios.get('https://ev-charger-app.onrender.com/api/chargers', {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -125,7 +125,7 @@ const fetchChargers = async () => {
 const deleteCharger = async (id) => {
   try {
     const token = localStorage.getItem('token')
-    await axios.delete(`http://localhost:5000/api/chargers/${id}`, {
+    await axios.delete(`https://ev-charger-app.onrender.com/api/chargers/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

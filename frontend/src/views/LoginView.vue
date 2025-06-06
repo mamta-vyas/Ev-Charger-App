@@ -57,7 +57,7 @@ const router = useRouter()
 
 const handleLogin = async () => {
   try {
-    const response = await axios.post('http://localhost:5000/api/login', {
+    const response = await axios.post('https://ev-charger-app.onrender.com/api/login', {
       email: email.value,
       password: password.value
     })
